@@ -50,16 +50,32 @@ class Carre:
             somme = somme + self.tableau[i][j]
         return somme
 
-def est_semimagique(self):
-    s = self.somme_ligne(0)
-    #test de la somme de chaque ligne
-    for i in range(...):
-        if ... != s:
-            return ...
+    def est_semimagique(self):
+        s = self.somme_ligne(0)
+        #test de la somme de chaque ligne
+        for i in range(self.ordre):
+            if self.somme_ligne(i) != s:
+                return False
 
-#test de la somme de chaque colonne
-    for j in range(...):
-        if ... != s:
-        return ...
+        #test de la somme de chaque colonne
+        for j in range(self.ordre):
+            if self.somme_col(j) != s:
+                return False
 
-    return ...
+        return True
+    
+c2 = Carre([1, 7, 7, 1], 2)
+c2.affiche()
+print(" ")
+
+c3 = Carre([3, 4, 5, 4, 4, 4, 5, 4, 3], 3)
+c3.affiche()
+print(" ")
+
+c3bis = Carre([2, 9, 4, 7, 0, 3, 6, 1, 8], 3)
+c3bis.affiche()
+print(" ")
+
+assert c2.est_semimagique() == True
+assert c3.est_semimagique() == True
+assert c3bis.est_semimagique() == False
